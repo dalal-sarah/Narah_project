@@ -92,7 +92,7 @@ public class SecondaryMenu extends AppCompatActivity {
 
             ly1.addView(ly2);
             ImageView imgview = new ImageView(this);
-            imgview.setImageResource(R.drawable.calzone);
+            imgview.setImageResource(R.drawable.dessert);
             ly1.addView(imgview);
             ly.addView(ly1);
         }
