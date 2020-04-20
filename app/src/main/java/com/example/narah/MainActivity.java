@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//this is test2S
+//this is from saja
     private Button btg_onclick ;
     public static int counter=0;
     public static Order order=new Order();
