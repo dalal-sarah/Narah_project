@@ -6,13 +6,18 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.print.PrintManager;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,11 +25,14 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.narah.Model.Meal;
+import com.example.narah.Model.Order;
+import com.example.narah.Model.Type;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondaryMenu extends AppCompatActivity {
+public class SecondaryMenu extends AppCompatActivity implements View.OnClickListener {
 
     ScrollView scrollview;
     LinearLayout lyroot;
@@ -61,10 +69,25 @@ public class SecondaryMenu extends AppCompatActivity {
         return true;
     }
 
+    List<Meal> list=new ArrayList();
     @Override
     protected void onStart() {
         super.onStart();
         String s=getIntent().getStringExtra("type");
+
+
+
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        Gson gson=new Gson();
+        String menustring=prefs.getString("MenuData","");
+        Type[] types=gson.fromJson(menustring, Type[].class);
+
+        for(int i=0;i<types.length;i++){
+            Type type=types[i];
+            if(type.getName().equals(s)){
+                addComponentsToSecondaryMenu(lyroot,type.getMeals());
+
+            }        }
 
         if(s.equals("Pizza")){
 
@@ -79,38 +102,56 @@ public class SecondaryMenu extends AppCompatActivity {
         }else if(s.equals("Dessert")){
 
         }
-        List list=new ArrayList();
-        addComponentsToSecondaryMenu(lyroot,list,getIntent().getStringExtra("type"));
+
+        Meal meal1=new Meal("dalal 1","sd",14);
+        Meal meal2=new Meal("sdsda","asd",67);
+        list.add(meal1);
+        list.add(meal2);
+        addComponentsToSecondaryMenu(lyroot,list);
     }
 
-    public void addComponentsToSecondaryMenu(LinearLayout ly, List meals,String s){
-        for(int i=0;i<10;i++) {
-            LinearLayout ly1 = new LinearLayout(new ContextThemeWrapper(this,R.style.SecondaryMenuComponents));
 
+
+    public void addComponentsToSecondaryMenu(LinearLayout ly, List<Meal> meals){
+
+
+        Button [] buttons=new Button[meals.size()];
+        for (int i=0;i<buttons.length;i++){
+            buttons[i]=new Button(this);
+            buttons[i].setOnClickListener(this);
+            buttons[i].setId(i);
+        }
+        for(int i=0;i<meals.size();i++) {
+            Meal meal=(Meal)meals.get(i);
+            //meal.setButton(buttons[i]);
+            LinearLayout ly1 = new LinearLayout(new ContextThemeWrapper(this,R.style.SecondaryMenuComponents));
             ly1.setOrientation(LinearLayout.HORIZONTAL);
             LinearLayout ly2 = new LinearLayout(this);
             ly2.setOrientation(LinearLayout.VERTICAL);
             TextView txname = new TextView(this);
-            txname.setText(s);
+            txname.setText(meal.getName());
             ly2.addView(txname);
             TextView txprice = new TextView(this);
-            txprice.setText("price");
+            txprice.setText(meal.getPrice()+" $");
             ly2.addView(txprice);
             TextView txbranch = new TextView(this);
-            txbranch.setText("branch");
+            txbranch.setText(meal.getBranch());
             ly2.addView(txbranch);
-            Button add = new Button(this);
-            add.setText("add to chart");
+            Button add = buttons[i];
+            add.setText("add to cart");
             ly2.addView(add);
 
             ly1.addView(ly2);
+
             ImageView imgview = new ImageView(this);
-            imgview.setImageResource(R.drawable.pizzzaa);
+            imgview.setImageResource(R.drawable.eggandhotdogpastriess);
             ly1.addView(imgview);
             ly.addView(ly1);
         }
 
+
     }
+
     public void addComponentToSecondaryMenu(){
         LinearLayout ly1 = new LinearLayout(this);
         ly1.setOrientation(LinearLayout.HORIZONTAL);
@@ -137,5 +178,14 @@ public class SecondaryMenu extends AppCompatActivity {
         ImageView imgview = new ImageView(this);
         imgview.setImageResource(R.drawable.calzone);
         ly1.addView(imgview);
+    }
+
+    @Override
+    public void onClick(View v) {
+        MainActivity.counter++;
+        int counter=MainActivity.counter;
+        Order order=MainActivity.order;
+            order.addMeal(list.get(v.getId()));
+        Log.println(Log.INFO,"","button clicked");
     }
 }

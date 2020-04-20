@@ -12,8 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.narah.Model.Meal;
 import com.example.narah.Model.Narah;
+import com.example.narah.Model.Type;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -21,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        MenuData();
     }
 
     public void btnSave_onClick(View view) {
@@ -111,5 +116,67 @@ public class MainMenu extends AppCompatActivity {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
         intent.putExtra("type","Dessert");
         startActivity(intent);
+    }
+    public void MenuData() {
+        ArrayList<Meal> meals = new ArrayList<>();
+        Meal meal1 = new Meal("small", "WADI AL JOZ , Biet Sfafa", 13);
+        Meal meal2 = new Meal("meduim", "WADI AL JOZ , Biet Sfafa", 35);
+        Meal meal3 = new Meal("large", "WADI AL JOZ , Biet Sfafa", 60);
+        Meal meal4 = new Meal("Stuffed Crust", "WADI AL JOZ , Biet Sfafa", 50);
+        Meal meal5 = new Meal(" Plain Eggs", "WADI AL JOZ , Biet Sfafa", 13);
+        Meal meal7 = new Meal("Eggs and Sausage", " Biet Sfafa", 13);
+        Meal meal8 = new Meal("Eggs and Hotdoogs", " Biet Sfafa", 13);
+        Meal meal9 = new Meal("Chicken and Vegetables", " Biet Sfafa", 15);
+        Meal meal10 = new Meal("spicy Chicken", " Biet Sfafa", 20);
+        Meal meal11 = new Meal("Meshulash", " Biet Sfafa", 12);
+        Meal meal12 = new Meal("Cheese and Olive", "WADI AL JOZ", 10);
+        Meal meal13 = new Meal("Bulgarian", "WADI AL JOZ", 11);
+        Meal meal14 = new Meal("All Type OF Cheese", "WADI AL JOZ", 13);
+        Meal meal15 = new Meal("Za`atar Manakishb", "WADI AL JOZ , Biet Sfafa", 5);
+        Meal meal16 = new Meal("Rayaneh", "WADI AL JOZ , Biet Sfafa", 15);
+        Meal meal17 = new Meal("Nutella", "WADI AL JOZ , Biet Sfafa", 25);
+        Meal meal18 = new Meal("Lotus", "WADI AL JOZ , Biet Sfafa", 25);
+        Meal meal19 = new Meal("Apple Pie", "WADI AL JOZ , Biet Sfafa", 25);
+        Meal meal20 = new Meal("Fries", "WADI AL JOZ , Biet Sfafa", 8);
+        Type type1 = new Type("pizza");
+        type1.addMeal(meal1);
+        type1.addMeal(meal2);
+        type1.addMeal(meal3);
+        type1.addMeal(meal4);
+        Type type2 = new Type("Egg Pastries");
+        type2.addMeal(meal5);
+        type2.addMeal(meal7);
+        type2.addMeal(meal8);
+        Type type3=new Type("Calzone");
+        type3.addMeal(meal9);
+        type3.addMeal(meal10);
+        Type type4=new Type("Pastries");
+        type4.addMeal(meal11);
+        type4.addMeal(meal12);
+        type4.addMeal(meal13);
+        type4.addMeal(meal14);
+        type4.addMeal(meal15);
+        type4.addMeal(meal16);
+        Type type5=new Type("Dessert");
+        type5.addMeal(meal17);
+        type5.addMeal(meal18);
+        type5.addMeal(meal19);
+        Type type6=new Type("Extras");
+        type6.addMeal(meal20);
+        Type [] types=new Type[10];
+        types[0]=type1;
+        types[0]=type2;
+        types[0]=type3;
+        types[0]=type4;
+        types[0]=type5;
+        types[0]=type6;
+
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor=prefs.edit();
+                Gson gson = new Gson();
+                String narahString = gson.toJson(types);
+                editor.putString("MenuData",narahString);
+                editor.commit();
     }
 }

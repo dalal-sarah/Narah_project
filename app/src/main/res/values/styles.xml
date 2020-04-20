@@ -10,7 +10,7 @@
     <style name="SecondaryMenuComponents">
 
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
-        <item name="android:layout_margin">10px </item>
+        <item name="android:layout_margin">5px </item>
     </style>
 
 </resources>

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Type extends AppCompatActivity {
     String name="";
-    ImageView imgv=new ImageView(this);
+//    ImageView imgv=new ImageView(this);
     List<Meal> meals =new ArrayList<>();
 
     public Type() {
@@ -32,13 +32,13 @@ public class Type extends AppCompatActivity {
         this.name = name;
     }
 
-    public ImageView getImgv() {
-        return imgv;
-    }
-
-    public void setImgv(ImageView imgv) {
-        this.imgv = imgv;
-    }
+//    public ImageView getImgv() {
+//        return imgv;
+//    }
+//
+//    public void setImgv(ImageView imgv) {
+//        this.imgv = imgv;
+//    }
 
     public List<Meal> getMeals() {
         return meals;
