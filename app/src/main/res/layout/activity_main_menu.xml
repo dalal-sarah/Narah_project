@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenu">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <ImageView
+        android:id="@+id/pizzaImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/pizzaa"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/pizzaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/pizzaImg"
+        android:layout_alignTop="@+id/pizzaImg"
+        android:text="pizza"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/pizzaImg"
+        android:onClick="txv_pizaaList"
+        />
+
+    <ImageView
+        android:id="@+id/pastriesImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/pastries"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/pastriesText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/pastriesImg"
+        android:layout_alignTop="@+id/pastriesImg"
+        android:text="pastries"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/pastriesImg"
+        android:onClick="txv_pastriesList"/>
+
+    <ImageView
+        android:id="@+id/calzoneImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="220dp"
+        android:src="@drawable/calzone"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/calzoneText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/calzoneImg"
+        android:layout_alignTop="@+id/calzoneImg"
+        android:text="Calzone"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/calzoneImg"
+        android:onClick="txv_calzoneList"
+        />
+
+    <ImageView
+        android:id="@+id/eggImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="330dp"
+        android:src="@drawable/egg"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/eggText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/eggImg"
+        android:layout_alignTop="@+id/eggImg"
+        android:text="Egg Pastries"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/eggImg"
+        android:onClick="txv_eggList"/>
+
+    <ImageView
+        android:id="@+id/extraImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="430dp"
+        android:src="@drawable/extra"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/friesText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/extraImg"
+        android:layout_alignTop="@+id/extraImg"
+        android:text="Fries"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/extraImg"
+        android:onClick="txt_friesList"/>
+    <ImageView
+        android:id="@+id/dessertImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="530dp"
+        android:src="@drawable/dessert"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/dessertText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/dessertImg"
+        android:layout_alignTop="@+id/dessertImg"
+        android:text="Dessert"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/dessertImg"
+        android:onClick="txv_dessertList"/>
+
+    <Button
+        android:id="@+id/savebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:onClick="btnSave_onClick"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="630dp"
+        android:layout_marginLeft="16dp" />
+
+</RelativeLayout>

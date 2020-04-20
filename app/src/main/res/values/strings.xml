@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Narah</string>
+    <string name="personal_data">personal_data</string>
+    <string name="shoppingCart">Shopping cart</string>
 </resources>
