@@ -83,7 +83,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void txv_pizaaList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","Pizza");
+        intent.putExtra("type","pizza");
         startActivity(intent);
 
     }
@@ -163,13 +163,13 @@ public class MainMenu extends AppCompatActivity {
         type5.addMeal(meal19);
         Type type6=new Type("Extras");
         type6.addMeal(meal20);
-        Type [] types=new Type[10];
+        Type [] types=new Type[6];
         types[0]=type1;
-        types[0]=type2;
-        types[0]=type3;
-        types[0]=type4;
-        types[0]=type5;
-        types[0]=type6;
+        types[1]=type2;
+        types[2]=type3;
+        types[3]=type4;
+        types[4]=type5;
+        types[5]=type6;
 
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

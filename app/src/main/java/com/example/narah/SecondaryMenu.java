@@ -83,7 +83,9 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
         Type[] types=gson.fromJson(menustring, Type[].class);
 
         for(int i=0;i<types.length;i++){
+
             Type type=types[i];
+            Log.println(Log.INFO,"",type.getName());
             if(type.getName().equals(s)){
                 addComponentsToSecondaryMenu(lyroot,type.getMeals());
 
@@ -103,11 +105,6 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
 
         }
 
-        Meal meal1=new Meal("dalal 1","sd",14);
-        Meal meal2=new Meal("sdsda","asd",67);
-        list.add(meal1);
-        list.add(meal2);
-        addComponentsToSecondaryMenu(lyroot,list);
     }
 
 
@@ -145,6 +142,7 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
 
             ImageView imgview = new ImageView(this);
             imgview.setImageResource(R.drawable.eggandhotdogpastriess);
+            //imgview.setMaxWidth(110dp);
             ly1.addView(imgview);
             ly.addView(ly1);
         }
