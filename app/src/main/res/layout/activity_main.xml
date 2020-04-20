@@ -13,6 +13,7 @@
         android:id="@+id/narah"
         android:layout_width="473dp"
         android:layout_height="211dp"
+        android:src="@drawable/narah"
 
 
         />
