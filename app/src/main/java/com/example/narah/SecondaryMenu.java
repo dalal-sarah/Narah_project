@@ -66,8 +66,20 @@ public class SecondaryMenu extends AppCompatActivity {
         super.onStart();
         String s=getIntent().getStringExtra("type");
 
-        List list=new ArrayList();
+        if(s.equals("Pizza")){
 
+        }else if(s.equals("Pastries")){
+
+        }else if(s.equals("Calzone")){
+
+        }else if(s.equals("Egg Pastries")){
+
+        }else if(s.equals("Extras")){
+
+        }else if(s.equals("Dessert")){
+
+        }
+        List list=new ArrayList();
         addComponentsToSecondaryMenu(lyroot,list,getIntent().getStringExtra("type"));
     }
 

@@ -78,38 +78,38 @@ public class MainMenu extends AppCompatActivity {
 
     public void txv_pizaaList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","piazaa");
+        intent.putExtra("type","Pizza");
         startActivity(intent);
 
     }
 
     public void txv_pastriesList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","pastries");
+        intent.putExtra("type","Pastries");
         startActivity(intent);
     }
 
     public void txv_calzoneList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","calzone");
+        intent.putExtra("type","Calzone");
         startActivity(intent);
     }
 
     public void txv_eggList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","egg");
+        intent.putExtra("type","Egg Pastries");
         startActivity(intent);
     }
 
     public void txt_friesList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","extras");
+        intent.putExtra("type","Extras");
         startActivity(intent);
     }
 
     public void txv_dessertList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
-        intent.putExtra("type","dessert");
+        intent.putExtra("type","Dessert");
         startActivity(intent);
     }
 }
