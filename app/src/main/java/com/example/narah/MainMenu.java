@@ -79,7 +79,6 @@ public class MainMenu extends AppCompatActivity {
     public void txv_pizaaList(View view) {
         Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
         intent.putExtra("type","piazaa");
-
         startActivity(intent);
 
     }
