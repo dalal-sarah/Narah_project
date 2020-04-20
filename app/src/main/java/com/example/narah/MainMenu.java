@@ -84,17 +84,32 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void txv_pastriesList(View view) {
+        Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
+        intent.putExtra("type","pastries");
+        startActivity(intent);
     }
 
     public void txv_calzoneList(View view) {
+        Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
+        intent.putExtra("type","calzone");
+        startActivity(intent);
     }
 
     public void txv_eggList(View view) {
+        Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
+        intent.putExtra("type","egg");
+        startActivity(intent);
     }
 
     public void txt_friesList(View view) {
+        Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
+        intent.putExtra("type","extras");
+        startActivity(intent);
     }
 
     public void txv_dessertList(View view) {
+        Intent intent=new Intent(MainMenu.this,SecondaryMenu.class);
+        intent.putExtra("type","dessert");
+        startActivity(intent);
     }
 }

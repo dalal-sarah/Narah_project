@@ -65,6 +65,7 @@ public class SecondaryMenu extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         String s=getIntent().getStringExtra("type");
+
         List list=new ArrayList();
 
         addComponentsToSecondaryMenu(lyroot,list,getIntent().getStringExtra("type"));
