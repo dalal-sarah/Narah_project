@@ -67,7 +67,7 @@
         android:layout_marginLeft="23dp"
         android:gravity="left"
         android:layout_marginTop="40dp"
-        android:text="ID"
+        android:text="Phone"
         android:textColor="@color/colortext1"
         android:layout_below="@+id/editText2"
         android:textSize="18sp"
