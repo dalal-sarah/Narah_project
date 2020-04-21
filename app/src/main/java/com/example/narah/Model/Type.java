@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Type extends AppCompatActivity {
+public class Type  {
     String name="";
 //    ImageView imgv=new ImageView(this);
     List<Meal> meals =new ArrayList<>();

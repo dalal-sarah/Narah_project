@@ -12,6 +12,14 @@ public class OrderMap {
         this.counter = counter;
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
     public Meal getMeal() {
         return meal;
     }

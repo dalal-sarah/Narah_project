@@ -1,7 +1,6 @@
 package com.example.narah;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +10,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.print.PrintManager;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
@@ -59,7 +57,7 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
             Intent intent=new Intent(SecondaryMenu.this,ShoppingCartActivity.class);
             startActivity(intent);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
@@ -83,13 +81,12 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
         Type[] types=gson.fromJson(menustring, Type[].class);
 
         for(int i=0;i<types.length;i++){
-
             Type type=types[i];
             Log.println(Log.INFO,"",type.getName());
             if(type.getName().equals(s)){
                 addComponentsToSecondaryMenu(lyroot,type.getMeals());
-
-            }        }
+            }
+        }
 
         if(s.equals("Pizza")){
 
@@ -120,6 +117,7 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
         }
         for(int i=0;i<meals.size();i++) {
             Meal meal=(Meal)meals.get(i);
+            list.add(meal);
             //meal.setButton(buttons[i]);
             LinearLayout ly1 = new LinearLayout(new ContextThemeWrapper(this,R.style.SecondaryMenuComponents));
             ly1.setOrientation(LinearLayout.HORIZONTAL);

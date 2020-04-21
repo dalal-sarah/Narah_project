@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.narah.SecondaryMenu;
 
-public class Meal extends AppCompatActivity {
+public class Meal  {
     private String name="";
     private String branch="";
     private double  price=0;

@@ -14,16 +14,19 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/lyrootcart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lv_Meals">
+            android:orientation="vertical">
 
-            </ListView>
             <LinearLayout
+                android:id="@+id/lyitems"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -32,10 +35,11 @@
                     android:layout_width="151dp"
                     android:layout_height="wrap_content"
                     android:text="@string/tfTotalPrice" />
+
                 <EditText
+                    android:id="@+id/edt_totalPrice"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edt_totalPrice"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 

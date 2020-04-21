@@ -74,11 +74,10 @@ public class MainMenu extends AppCompatActivity {
         int id=item.getItemId();
         String msg="";
         if(id == R.id.shoppingCartIcon){
-
             Intent intent=new Intent(MainMenu.this,ShoppingCartActivity.class);
             startActivity(intent);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     public void txv_pizaaList(View view) {
