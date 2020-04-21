@@ -11,6 +11,18 @@ public class Personal {
     public Personal(){
         super();
     }
+
+    @Override
+    public String toString() {
+        return "Personal{" +
+                "Name='" + Name + '\'' +
+                ", ID='" + ID + '\'' +
+                ", Address='" + Address + '\'' +
+                ", CreditCard='" + CreditCard + '\'' +
+                ", Pay='" + Pay + '\'' +
+                '}';
+    }
+
     public Personal(String name, String address, String id, String CD, String p)
     {
       Name=name;

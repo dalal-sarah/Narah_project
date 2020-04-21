@@ -2,6 +2,7 @@ package com.example.narah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ public class personal_information extends AppCompatActivity {
     EditText Address;
     RadioButton Cash;
     RadioButton CRCard;
-   TextView TVCard;
+    TextView TVCard;
     EditText CDID;
 
 
@@ -35,11 +36,11 @@ public class personal_information extends AppCompatActivity {
         Name = findViewById(R.id.editText);
         Address = findViewById(R.id.editText2);
         ID = findViewById(R.id.editText3);
-        Cash =findViewById(R.id.radioButton);
-        CRCard =findViewById(R.id.radioButton2);
+        Cash = findViewById(R.id.radioButton);
+        CRCard = findViewById(R.id.radioButton2);
         CDID = findViewById(R.id.editText4);
         TVCard = findViewById(R.id.textView5);
-        if(Cash.isChecked()){
+        if (Cash.isChecked()) {
             CDID.setVisibility(View.INVISIBLE);
             TVCard.setVisibility(View.INVISIBLE);
         }
@@ -62,51 +63,60 @@ public class personal_information extends AppCompatActivity {
                         TVCard.setVisibility(View.VISIBLE);
                         break;
                 }
-            }  });
+            }
+        });
     }
 
-static int idCount=0;
+    static int idCount = 0;
+
     public void btnOnclick(View view) {
-        String cash,Credit;
-        if(Name.getText().toString().length()==0 || Address.getText().toString().length()==0|| ID.getText().toString().length()==0)
-        {
-            Toast.makeText(this,"You need to fill all text on GUI",Toast.LENGTH_LONG).show();
+        String cash, Credit;
+        if (Name.getText().toString().length() == 0 || Address.getText().toString().length() == 0 || ID.getText().toString().length() == 0) {
+            Toast.makeText(this, "You need to fill all text on GUI", Toast.LENGTH_LONG).show();
 
-        }else{
-        if ( !Cash.isChecked() && CDID.getText().toString().length()==0){
-            Toast.makeText(this,"You need to put money in CD text",Toast.LENGTH_LONG).show();
+        } else {
+            if (!Cash.isChecked() && CDID.getText().toString().length() == 0) {
+                Toast.makeText(this, "You need to put money in CD text", Toast.LENGTH_LONG).show();
 
-        }
-else{
-            SharedPreferences shardpre = getSharedPreferences("personal_data",MODE_PRIVATE);
-            SharedPreferences.Editor editor= shardpre.edit();
-            if(Cash.isChecked()) {
-               cash="cash";
-               Credit="";
-            }else{
-                cash="Not Cash";
-                Credit=CDID.getText().toString();
+            } else {
+                SharedPreferences shardpre = getSharedPreferences("personal_data", MODE_PRIVATE);
+                SharedPreferences.Editor editor = shardpre.edit();
+                if (Cash.isChecked()) {
+                    cash = "cash";
+                    Credit = "";
+                } else {
+                    cash = "Not Cash";
+                    Credit = CDID.getText().toString();
 
 
-            }
-            Personal pers = new Personal(Name.getText().toString(),Address.getText().toString(), ID.getText().toString(),Credit,cash);
+                }
+                Personal pers = new Personal(Name.getText().toString(), Address.getText().toString(), ID.getText().toString(), Credit, cash);
 //            editor.putString("name",Name.getText().toString());
 //            editor.putString("address",Address.getText().toString());
 //            editor.putString("ID",ID.getText().toString());
-            Gson gson = new Gson();
+                Gson gson = new Gson();
 
-            editor.putString(""+(++idCount),gson.toJson(pers));
-            editor.commit();
-
-            SharedPreferences sh =getSharedPreferences(getString(R.string.personal_data),MODE_PRIVATE);
+                editor.putString("" + (++idCount), gson.toJson(pers));
+                editor.commit();
+                Name.setText("");
+                Address.setText("");
+                ID.setText("");
+                Cash.setChecked(true);
+                if (Cash.isChecked()) {
+                    CDID.setVisibility(View.INVISIBLE);
+                    TVCard.setVisibility(View.INVISIBLE);
+                }
+                SharedPreferences sh = getSharedPreferences(getString(R.string.personal_data), MODE_PRIVATE);
 //            String data = sh.getString("name","");
 //            data+="   Address "+sh.getString("address","")+ "  ID "+sh.getString("ID","");
-            Gson g = new Gson();
-            String per= sh.getString("1","");
-            Personal p = g.fromJson(per,Personal.class);
-            Toast.makeText(this,p.getName()+"Done",Toast.LENGTH_LONG).show();
+                Gson g = new Gson();
+                String per = sh.getString("1", "");
+                Personal p = g.fromJson(per, Personal.class);
+                Toast.makeText(this, p.toString() + "Done", Toast.LENGTH_LONG).show();
+                Intent intent= new Intent(personal_information.this,MainActivity.class);
+                startActivity(intent);
 
+            }
         }
-    }
     }
 }
