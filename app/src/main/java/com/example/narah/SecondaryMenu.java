@@ -72,14 +72,10 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
     protected void onStart() {
         super.onStart();
         String s=getIntent().getStringExtra("type");
-
-
-
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson=new Gson();
         String menustring=prefs.getString("MenuData","");
         Type[] types=gson.fromJson(menustring, Type[].class);
-
         for(int i=0;i<types.length;i++){
             Type type=types[i];
             Log.println(Log.INFO,"",type.getName());
@@ -88,19 +84,6 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        if(s.equals("Pizza")){
-
-        }else if(s.equals("Pastries")){
-
-        }else if(s.equals("Calzone")){
-
-        }else if(s.equals("Egg Pastries")){
-
-        }else if(s.equals("Extras")){
-
-        }else if(s.equals("Dessert")){
-
-        }
 
     }
 
@@ -134,12 +117,16 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
             ly2.addView(txbranch);
             Button add = buttons[i];
             add.setText("add to cart");
+            add.setWidth(600);
             ly2.addView(add);
 
             ly1.addView(ly2);
 
             ImageView imgview = new ImageView(this);
+            imgview.setPadding(40,0,10,0);
             imgview.setImageResource(R.drawable.eggandhotdogpastriess);
+            LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(600,370);
+            imgview.setLayoutParams(parms);
             //imgview.setMaxWidth(110dp);
             ly1.addView(imgview);
             ly.addView(ly1);
