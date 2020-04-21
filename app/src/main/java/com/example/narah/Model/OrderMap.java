@@ -3,13 +3,27 @@ package com.example.narah.Model;
 public class OrderMap {
     Meal meal;
     int counter=0;
+    int id=0;
+    static int num=0;
 
     public OrderMap() {
+        id++;
     }
 
-    public OrderMap(Meal meal, int counter) {
+
+    public OrderMap(Meal meal, int counter ) {
         this.meal = meal;
         this.counter = counter;
+        this.id=num;
+        num++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCounter() {
@@ -29,5 +43,13 @@ public class OrderMap {
     }
     public void IncreaseNumberOfMeals(){
         counter++;
+    }
+    public boolean DecreaseNumberOfMeals(){
+        counter--;
+        if(counter<=0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

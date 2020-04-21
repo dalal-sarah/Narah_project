@@ -7,6 +7,7 @@ public class Personal {
     private String Address="";
     private String CreditCard="";
     private String Pay="";
+    private int OrderId=0;
 
     public Personal(){
         super();
@@ -71,6 +72,11 @@ public class Personal {
         return Pay;
     }
 
+    public int getOrderId() {
+        return OrderId;
+    }
 
-
+    public void setOrderId(int orderId) {
+        OrderId = orderId;
+    }
 }

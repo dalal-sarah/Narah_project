@@ -71,6 +71,7 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
+        lyroot.removeAllViews();
         String s=getIntent().getStringExtra("type");
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson=new Gson();
@@ -123,12 +124,13 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
             ly1.addView(ly2);
 
             ImageView imgview = new ImageView(this);
-            imgview.setPadding(40,0,10,0);
-            imgview.setImageResource(R.drawable.eggandhotdogpastriess);
+            imgview.setPadding(50,0,10,0);
+            imgview.setImageResource(meal.getImgId());
             LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(600,370);
             imgview.setLayoutParams(parms);
             //imgview.setMaxWidth(110dp);
             ly1.addView(imgview);
+            ly1.setPadding(0,50,0,50);
             ly.addView(ly1);
         }
 
@@ -138,9 +140,6 @@ public class SecondaryMenu extends AppCompatActivity implements View.OnClickList
     public void addComponentToSecondaryMenu(){
         LinearLayout ly1 = new LinearLayout(this);
         ly1.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(5,5,5,5);
         ly1.setBackgroundColor(Color.BLUE);
         LinearLayout ly2 = new LinearLayout(this);
         ly2.setOrientation(LinearLayout.VERTICAL);

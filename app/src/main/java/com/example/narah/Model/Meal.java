@@ -13,6 +13,7 @@ public class Meal  {
     private String branch="";
     private double  price=0;
     int id=0;
+    int imgId;
 //    private ImageView img=new ImageView(this);
 //    private Button button;
 
@@ -44,6 +45,14 @@ public class Meal  {
 //        });
 
 
+    }
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
     }
 
     public int getId() {

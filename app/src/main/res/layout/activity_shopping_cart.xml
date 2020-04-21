@@ -54,18 +54,7 @@
                 android:id="@+id/lytotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="151dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tfTotalPrice" />
-
-                <EditText
-                    android:id="@+id/edt_totalPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:orientation="horizontal"/>
 
 
         </LinearLayout>

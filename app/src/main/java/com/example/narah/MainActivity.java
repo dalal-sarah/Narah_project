@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        order=new Order();
+        super.onStart();
+    }
 
     public void btg(View view) {
         Intent intent= new Intent(MainActivity.this,MainMenu.class);

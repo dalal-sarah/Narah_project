@@ -91,6 +91,7 @@ public class personal_information extends AppCompatActivity {
 
                 }
                 Personal pers = new Personal(Name.getText().toString(), Address.getText().toString(), ID.getText().toString(), Credit, cash);
+                pers.setOrderId(getIntent().getIntExtra("OrderId",1));
 //            editor.putString("name",Name.getText().toString());
 //            editor.putString("address",Address.getText().toString());
 //            editor.putString("ID",ID.getText().toString());
@@ -115,6 +116,7 @@ public class personal_information extends AppCompatActivity {
                 Toast.makeText(this, p.toString() + "Done", Toast.LENGTH_LONG).show();
                 Intent intent= new Intent(personal_information.this,MainActivity.class);
                 startActivity(intent);
+
 
             }
         }
